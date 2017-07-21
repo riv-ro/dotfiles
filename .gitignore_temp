@@ -1,5 +1,9 @@
+
 #MacのFinderでのみ生成されるので除外
-.DS_Store
+*.DS_Store
+
+#Python環境設定
+*.python-version
 
 #画像ファイルを除外
 *.jpeg
@@ -17,3 +21,6 @@
 
 #PDFも除外
 *.pdf
+
+#numpyのバイナリファイル
+*.npy
