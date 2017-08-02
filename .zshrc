@@ -131,5 +131,12 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+export CUDA_HOME=/usr/local/cuda-8.0
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${CUDA_HOME}/lib64
+export PATH=$PATH:${CUDA_HOME}/bin
 
+case $TERM in
+	linux) LANG=C ;;
+	*) LANG=ja_JP.UTF-8 ;;
+esac
 
