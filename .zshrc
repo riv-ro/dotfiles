@@ -15,11 +15,13 @@ PROMPT="%{${fg[yellow]}%}[%n@%m]%{${reset_color}%} %~ >>> %# "
 # %# "
 
 # history
-HISTFILE=~/work/dotfils/zsh/.zsh_hist
-HISTSIZE=1000
-SAVEHIST=1000
-setopt extended_history #ヒストリに実行時間も保存
-setopt hist_ignore_dups #直前と同じコマンドはヒストリに追加しない
+export HISTFILE=${HOME}/.zsh_hist # 履歴ファイルの保存先
+export HISTSIZE=1000 # メモリに保存される履歴の件数
+export SAVEHIST=1000 # 履歴ファイルに保存される履歴の件数
+setopt extended_history # ヒストリに実行時間も保存
+setopt hist_ignore_dups # 直前と同じコマンドはヒストリに追加しない
+setopt share_history # ヒストリの共有
+setopt hist_ignore_space # スペースで始まるコマンド行はヒストリリストから削除
 
 #vi ライクな操作ができる
 bindkey -v
@@ -124,17 +126,7 @@ bindkey -M menuselect 'l' vi-forward-char
 
 # End of lines added by compinstall
 
-source /usr/local/bin/virtualenvwrapper.sh
-export WORKON_HOME=~/.virtualenvs
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-export CUDA_HOME=/usr/local/cuda-8.0
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${CUDA_HOME}/lib64
-export PATH=$PATH:${CUDA_HOME}/bin
-
+# 日本語環境外で表示がバグらないように
 case $TERM in
 	linux) LANG=C ;;
 	*) LANG=ja_JP.UTF-8 ;;
